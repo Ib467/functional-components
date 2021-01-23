@@ -5,10 +5,24 @@ import './App.css';
 // import RandomList from './components/RandomList';
 
 import Product from './components/Product';
+import ShoppingCart from './contexts/ShoppingCart'
+import Wrapper from './components/Wrapper'
+import MiniCart from './components/MiniCart'
 
 function App() {
   return (
-    <div className="App">
+
+      <ShoppingCart.Provider 
+      value={[
+        {
+          title: 'Toothpaste',
+          brand: 'Charcoal',
+          price: 35,
+          quantity: 1
+        }
+      ]}>
+
+
       {/* <Counter color="red" initialCount={10}/>
       <Counter color="green" initialCount={50}/>
       <Counter color="blue"/>
@@ -18,7 +32,13 @@ function App() {
       {/* <RandomList title="This is my random List" /> */}
 
       <Product />
-    </div>
+      <Wrapper>
+        <Wrapper>
+          <MiniCart />
+        </Wrapper>
+      </Wrapper>
+
+    </ShoppingCart.Provider>
   );
 }
 
